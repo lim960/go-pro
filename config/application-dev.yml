@@ -1,0 +1,24 @@
+
+name: 开发环境
+
+server:
+  port: 1016
+datasource:
+  driverName: mysql
+  host: 127.0.0.1
+  port: 3306
+  database: golang
+  username: root
+  password: root
+  charset: utf8
+  loc: Asia/Shanghai
+
+redis:
+  host: localhost
+  port: 6379
+  password: 123
+rabbitmq:
+  host: 127.0.0.1
+  port: 5672
+  username: guest
+  password: guest
