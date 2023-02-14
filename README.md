@@ -1,4 +1,8 @@
 # golang入门项目
+
+### 项目博客
+- https://blog.csdn.net/weixin_42704356/article/details/127021643
+
 ### 项目介绍：	
 - 数据库。。。。。。mysql
 - 缓存。。。。。。。redis
@@ -6,6 +10,21 @@
 - 路由框架。。。。。gin
 - ORM框架。。 。 。gorm
 - 日志框架。。。。。logrus
+### 目录结构：
+- common		  存放数据库 redis等
+- config		  存放配置文件 application.yml
+- controller	controller
+- logs			  日志文件
+- middleware	中间件
+- model			  实体类
+- rabbitmq		mq
+- response		响应
+- service		  service
+- task			  定时任务
+- util			  工具类
+- main.go	    入口文件
+- router.go	  路由
+- sql.sql	    存放sql语句
 
 ### 主要内容：
 - 环境搭建
@@ -29,5 +48,4 @@
 - RSA非对称加密
 - date工具类
 
-###博客讲解
-- https://blog.csdn.net/weixin_42704356/article/details/127021643
+
