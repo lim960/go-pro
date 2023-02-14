@@ -10,21 +10,8 @@
 - 路由框架。。。。。gin
 - ORM框架。。 。 。gorm
 - 日志框架。。。。。logrus
-### 目录结构：
-- common		  存放数据库 redis等
-- config		  存放配置文件 application.yml
-- controller	controller
-- logs			  日志文件
-- middleware	中间件
-- model			  实体类
-- rabbitmq		mq
-- response		响应
-- service		  service
-- task			  定时任务
-- util			  工具类
-- main.go	    入口文件
-- router.go	  路由
-- sql.sql	    存放sql语句
+### 目录结构:
+![image](https://user-images.githubusercontent.com/63385230/218643913-f1c09fb7-7422-4616-8156-8febabd9490a.png)
 
 ### 主要内容：
 - 环境搭建
