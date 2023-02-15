@@ -12,9 +12,9 @@ func RecoveryMiddleware() gin.HandlerFunc {
 			if err := recover(); err != nil {
 				println(fmt.Sprintf("recovery异常：%s", err))
 				response.Fail(c, "服务异常")
-				return
+				//终止请求执行
+				c.Abort()
 			}
 		}()
-		c.Next()
 	}
 }
