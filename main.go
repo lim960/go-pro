@@ -50,6 +50,8 @@ func Router() *gin.Engine {
 		middleware.RequestParamsMiddleware(),
 		//日志
 		middleware.LogMiddle(),
+		//token
+		middleware.TokenMiddleware(),
 	)
 	return StartRouter(r)
 }
