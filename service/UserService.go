@@ -9,7 +9,7 @@ func Saveuser(id uint, user *model.User) {
 
 	db := common.GetDB()
 	if id > 0 {
-		db.Model(&model.User{}).Where("id = ?", id).Update(user)
+		db.Model(&model.User{}).Where("id = ?", id).Updates(user)
 	} else {
 		//开启事务
 		tx := db.Begin()

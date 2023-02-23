@@ -15,7 +15,8 @@ func main() {
 	InitConfig()
 	//初始化数据库
 	db := common.InitDB()
-	defer db.Close()
+	sqlDB, _ := db.DB()
+	defer sqlDB.Close()
 	//启动各模块
 	Start()
 	//路由配置

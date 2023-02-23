@@ -1,7 +1,7 @@
 package service
 
 import (
-	"github.com/jinzhu/gorm"
+	"gorm.io/gorm"
 	"pro/middleware"
 )
 
