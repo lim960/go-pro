@@ -4,15 +4,14 @@ import (
 	"database/sql/driver"
 	"fmt"
 	"gorm.io/gorm"
-	"pro/util"
 	"time"
 )
 
 type BaseModel struct {
-	ID        uint        `gorm:"primary_key"`
-	CreatedAt *FormatTime `gorm:"autoCreateTime"`
-	UpdatedAt *FormatTime
-	DeletedAt gorm.DeletedAt `gorm:"index"`
+	ID        uint           `json:"id" gorm:"primary_key"`
+	CreatedAt *FormatTime    `json:"createdAt" gorm:"autoCreateTime"`
+	UpdatedAt *FormatTime    `json:"updatedAt"`
+	DeletedAt gorm.DeletedAt `json:"deletedAt" gorm:"index"`
 }
 
 type FormatTime time.Time
@@ -36,6 +35,6 @@ func (t *FormatTime) Scan(v interface{}) error {
 }
 
 func (u *BaseModel) BeforeUpdate(tx *gorm.DB) (err error) {
-	tx.Statement.SetColumn("updated_at", util.FormatSec(time.Now()))
+	tx.Statement.SetColumn("updated_at", time.Now())
 	return
 }

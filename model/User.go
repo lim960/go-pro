@@ -2,7 +2,7 @@ package model
 
 type User struct {
 	BaseModel
-	Username string
-	Password string
-	Tel      string
+	Username string `json:"username"`
+	Password string `json:"password"`
+	Tel      string `json:"tel"`
 }
