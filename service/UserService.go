@@ -14,8 +14,8 @@ func Saveuser(id uint, user *model.User) {
 		//开启事务
 		tx := db.Begin()
 		defer AutoTransaction(tx)
-		tx = tx.Create(user)
-		tx = tx.Create(&model.Balance{UserId: user.ID, Balanc: 1000})
+		tx.AddError(tx.Create(user).Error)
+		tx.AddError(tx.Create(&model.Balance{UserId: user.ID, Balance: 1000}).Error)
 	}
 }
 
