@@ -17,6 +17,7 @@ func AutoTransaction(tx *gorm.DB) {
 	//若无异常 提交事务
 	if r := recover(); r != nil {
 		tx.Rollback()
+		panic(r)
 	} else {
 		tx.Commit()
 	}

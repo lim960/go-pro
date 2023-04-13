@@ -13,9 +13,7 @@ func Saveuser(id uint, user *model.User) {
 	} else {
 		//开启事务
 		tx := db.Begin()
-		defer func() {
-			AutoTransaction(tx)
-		}()
+		defer AutoTransaction(tx)
 		tx = tx.Create(user)
 		tx = tx.Create(&model.Balance{UserId: user.ID, Balanc: 1000})
 	}

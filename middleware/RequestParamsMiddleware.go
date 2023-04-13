@@ -13,7 +13,10 @@ import (
 
 func RequestParamsMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
-		if strings.ToLower(c.Request.Header.Get("Content-Type")) == "application/json" {
+		if strings.Contains(
+			strings.ToLower(c.Request.Header.Get("Content-Type")),
+			"application/json",
+		) {
 			//读取全部入参
 			var params map[string]any
 			json.NewDecoder(c.Request.Body).Decode(&params)
