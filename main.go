@@ -3,7 +3,6 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/spf13/viper"
-	"io"
 	"pro/middleware"
 	"pro/middleware/log"
 )
@@ -35,7 +34,8 @@ func Start() {
 
 func Router() *gin.Engine {
 	//禁用gin输出
-	gin.DefaultWriter = io.Discard
+	//gin.DefaultWriter = ioutil.Discard
+	//gin.ForceConsoleColor()
 	r := gin.Default()
 	//文件上传大小
 	r.MaxMultipartMemory = 8 << 20 // 8 MiB
