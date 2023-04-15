@@ -4,19 +4,17 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/spf13/viper"
 	"io"
-	"pro/common"
 	"pro/middleware"
-	"pro/rabbitmq"
-	"pro/task"
+	"pro/middleware/log"
 )
 
 func main() {
 	//初始化配置文件
 	InitConfig()
 	//初始化数据库
-	db := common.InitDB()
-	sqlDB, _ := db.DB()
-	defer sqlDB.Close()
+	//db := common.InitDB()
+	//sqlDB, _ := db.DB()
+	//defer sqlDB.Close()
 	//启动各模块
 	Start()
 	//路由配置
@@ -26,14 +24,13 @@ func main() {
 	//项目启动
 	panic(r.Run(":" + port))
 }
-
 func Start() {
 	//初始化redis
-	common.InitRedis()
-	//开启定时任务
-	task.Start()
-	//初始化mq
-	rabbitmq.InitMq()
+	//common.InitRedis()
+	////开启定时任务
+	//task.Start()
+	////初始化mq
+	//rabbitmq.InitMq()
 }
 
 func Router() *gin.Engine {
@@ -50,7 +47,7 @@ func Router() *gin.Engine {
 		//请求参数处理
 		middleware.RequestParamsMiddleware(),
 		//日志
-		middleware.LogMiddle(),
+		log.LogMiddle(),
 		//token
 		middleware.TokenMiddleware(),
 	)
