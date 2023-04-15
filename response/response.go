@@ -16,3 +16,7 @@ func Success(ctx *gin.Context, data any) {
 func Fail(ctx *gin.Context, msg string) {
 	Response(ctx, http.StatusOK, 400, nil, msg)
 }
+
+func TokenFail(ctx *gin.Context, msg string) {
+	Response(ctx, http.StatusOK, -1, nil, msg)
+}

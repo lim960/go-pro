@@ -1,6 +1,8 @@
 
 name: 开发环境
 
+prefix: /shop
+
 server:
   port: 1016
 datasource:
