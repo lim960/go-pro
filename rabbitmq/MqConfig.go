@@ -6,7 +6,7 @@ import (
 	"github.com/streadway/amqp"
 	"log"
 	"net/url"
-	"pro/middleware"
+	logs "pro/middleware/log"
 	"time"
 )
 
@@ -83,7 +83,7 @@ func InitDelayMQ(queue string) {
 // SendDelayMessage 发送延时消息
 // delay: 延迟时间 单位秒
 func SendDelayMessage(queue string, message string, delay int) {
-	middleware.Info("发送时间: ", time.Now().Unix())
+	logs.Info("发送时间: ", time.Now().Unix())
 	err := ch.Publish(DelayExchange, queue, true, false, amqp.Publishing{
 		Headers: map[string]interface{}{"x-delay": delay * 1000},
 		Body:    []byte(fmt.Sprintf("%v", message)),
@@ -96,7 +96,7 @@ func SendDelayMessage(queue string, message string, delay int) {
 // SendPersistentDelayMessage 发送持久化延时消息
 // delay: 延迟时间 单位秒
 func SendPersistentDelayMessage(queue string, message string, delay int) {
-	middleware.Info("发送时间: ", time.Now().Unix())
+	logs.Info("发送时间: ", time.Now().Unix())
 	err := ch.Publish(DelayExchange, queue, true, false, amqp.Publishing{
 		Headers:      map[string]interface{}{"x-delay": delay * 1000},
 		Body:         []byte(fmt.Sprintf("%v", message)),

@@ -2,14 +2,14 @@ package service
 
 import (
 	"gorm.io/gorm"
-	"pro/middleware"
+	"pro/middleware/log"
 )
 
 // AutoTransaction 自动处理事务
 func AutoTransaction(tx *gorm.DB) {
 	//如果存在数据库操作异常 回滚事务
 	if tx.Error != nil {
-		middleware.Err(tx.Error.Error())
+		log.Err(tx.Error.Error())
 		tx.Rollback()
 		return
 	}

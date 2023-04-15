@@ -2,7 +2,7 @@ package task
 
 import (
 	"github.com/robfig/cron/v3"
-	"pro/middleware"
+	"pro/middleware/log"
 )
 
 var Crons = cron.New(cron.WithSeconds())
@@ -22,6 +22,6 @@ func Start() {
 func TesJob() {
 	Crons.AddFunc("*/10 * * * * *", func() {
 		//Crons.AddFunc("@every 10s", func() {
-		middleware.Info("定时任务输出")
+		log.Info("定时任务输出")
 	})
 }
