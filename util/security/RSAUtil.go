@@ -4,6 +4,8 @@ import (
 	"github.com/golang-module/dongle"
 )
 
+// RSA 加密解密
+
 // 私钥加密
 func EncryptByPriKey(data string) string {
 

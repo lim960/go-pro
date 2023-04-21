@@ -10,6 +10,8 @@ import (
 	"io"
 )
 
+// AES 加密 解密
+
 func Test1() {
 	origData := []byte("123")         // 待加密的数据
 	key := []byte("ABCDEFGHIJKLMNOP") // 加密的密钥

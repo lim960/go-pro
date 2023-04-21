@@ -9,6 +9,8 @@ import (
 	"strings"
 )
 
+// SM2withSM3 签名、验签
+
 func Test() {
 	//生成密钥对
 	hexPri, basePub := Generate()

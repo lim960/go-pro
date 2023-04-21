@@ -11,6 +11,8 @@ import (
 	"pro/middleware/log"
 )
 
+// RSA SHA1WithRSA 签名、验签
+
 func ShaSign(content string, pri *rsa.PrivateKey) (sign string) {
 
 	h := crypto.Hash.New(crypto.SHA1)
