@@ -7,14 +7,20 @@ import (
 	"strings"
 )
 
-var prefix = viper.GetString("prefix")
+var prefix string
 
 // Whitelist 放行白名单
-var Whitelist = []string{
-	prefix + "/common/",
+var Whitelist []string
+
+func InitWhite() {
+	Whitelist = []string{
+		prefix + "/common/",
+	}
 }
 
 func TokenMiddleware() gin.HandlerFunc {
+	prefix = viper.GetString("server.prefix")
+	InitWhite()
 	return func(c *gin.Context) {
 		//检查放行白名单
 		url := c.Request.RequestURI

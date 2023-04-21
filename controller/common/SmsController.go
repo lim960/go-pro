@@ -20,7 +20,7 @@ func SendSms(ctx *gin.Context) {
 	if tel == "" {
 		panic("参数错误")
 	}
-	env := viper.GetString("name")
+	env := viper.GetString("server.env")
 	key := consts.SmsKey[types] + tel
 	code := "1234"
 	if env == "生产环境" {

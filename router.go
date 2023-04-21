@@ -6,9 +6,10 @@ import (
 	"pro/controller/common"
 )
 
-var prefix = viper.GetString("prefix")
+var prefix string
 
 func StartRouter(r *gin.Engine) *gin.Engine {
+	prefix = viper.GetString("server.prefix")
 	r = CommonRouter(r)
 	r = AppRouter(r)
 	r = BackRouter(r)

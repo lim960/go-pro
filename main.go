@@ -82,6 +82,6 @@ func InitConfig() {
 		panic(err)
 	}
 	println("***********************************************")
-	println("配置文件读取完成, 当前运行环境为: ", viper.GetString("name"))
+	println("配置文件读取完成, 当前运行环境为: ", viper.GetString("server.env"))
 	println("***********************************************")
 }

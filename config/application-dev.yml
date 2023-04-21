@@ -1,9 +1,7 @@
 
-name: 开发环境
-
-prefix: /shop
-
 server:
+  env: 开发环境
+  prefix: /shop
   port: 1016
 datasource:
   driverName: mysql
