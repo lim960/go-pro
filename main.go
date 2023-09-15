@@ -26,10 +26,11 @@ func main() {
 func Start() {
 	//初始化redis
 	//common.InitRedis()
-	////开启定时任务
+	//开启定时任务
 	//task.Start()
-	////初始化mq
-	//rabbitmq.InitMq()
+	//初始化mq
+	//mqConfig.InitMq()
+	//consume.InItConsume()
 }
 
 func Router() *gin.Engine {

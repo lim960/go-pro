@@ -7,6 +7,8 @@ import (
 	"time"
 )
 
+var loc, _ = time.LoadLocation("Asia/Shanghai") //上海
+
 type BaseModel struct {
 	ID        uint           `json:"id" gorm:"primary_key"`
 	CreatedAt *FormatTime    `json:"createdAt" gorm:"autoCreateTime"`
@@ -18,12 +20,12 @@ type FormatTime time.Time
 
 func (t *FormatTime) MarshalJSON() ([]byte, error) {
 	tTime := time.Time(*t)
-	return []byte(fmt.Sprintf("\"%v\"", tTime.Format("2006-01-02 15:04:05"))), nil
+	return []byte(fmt.Sprintf("\"%v\"", tTime.In(loc).Format("2006-01-02 15:04:05"))), nil
 }
 
 func (t FormatTime) Value() (driver.Value, error) {
 	tTime := time.Time(t)
-	return tTime.Format("2006-01-02 15:04:05"), nil
+	return tTime.In(loc).Format("2006-01-02 15:04:05"), nil
 }
 
 func (t *FormatTime) Scan(v interface{}) error {
