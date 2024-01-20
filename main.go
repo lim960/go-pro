@@ -5,9 +5,12 @@ import (
 	"github.com/spf13/viper"
 	"pro/middleware"
 	"pro/middleware/log"
+	"time"
 )
 
 func main() {
+	var loc, _ = time.LoadLocation("Asia/Shanghai")
+	time.Local = loc
 	//初始化配置文件
 	InitConfig()
 	//初始化数据库
